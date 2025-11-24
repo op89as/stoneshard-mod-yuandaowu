@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetPlatform>windows7.0</TargetPlatform>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ModShardLauncher">
+      <HintPath>..\..\..\msl-witcher\ModShardLauncher.dll</HintPath>
+    </Reference>
+    <Reference Include="UndertaleModLib">
+      <HintPath>..\..\..\msl-witcher\UndertaleModLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

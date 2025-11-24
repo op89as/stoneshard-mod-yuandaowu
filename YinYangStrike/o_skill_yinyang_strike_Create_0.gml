@@ -1,0 +1,10 @@
+﻿event_inherited();
+filter = scr_line_filter;
+delete_on_line = true;
+target_group = 3534;
+skill = "YinYang_Strike";
+info = ds_list_find_value(global.skill_info_text, 25);
+ds_list_add(attribute, ds_map_find_value(global.attribute, "STR"), ds_map_find_value(global.attribute, "AGL"), ds_map_find_value(global.attribute, "Weapon_Damage"));
+scr_skill_atr("YinYang_Strike");
+startcast_sprite_tag = "s_heroicchargecast_";
+click_snd = 1019;

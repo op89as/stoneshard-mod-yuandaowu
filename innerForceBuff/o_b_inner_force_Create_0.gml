@@ -1,0 +1,10 @@
+﻿event_inherited();
+stack = 0;
+stage = 1;
+max_stage = 20;
+image_speed = 0;
+delay = duration;
+buff_snd = snd_skill_stave_unwavering_stance;
+scr_buff_atr();
+max_duration = 10;
+attack_count = 0;

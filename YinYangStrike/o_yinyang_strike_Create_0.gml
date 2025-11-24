@@ -1,0 +1,11 @@
+﻿event_inherited();
+light = -4;
+depth = -y - 26;
+cast_frame = 0.5;
+index = 0;
+is_execute = false;
+alarm[1] = 1;
+alarm[0] = 2;
+visible = true;
+category = "noWeapon";
+distance = 0;

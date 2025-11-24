@@ -1,0 +1,2 @@
+﻿stage++;
+event_inherited();

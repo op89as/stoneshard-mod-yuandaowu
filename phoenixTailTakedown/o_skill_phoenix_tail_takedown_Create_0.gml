@@ -1,0 +1,6 @@
+﻿event_inherited();
+skill = "Phoenix_tail_takedown";
+info = ds_list_find_value(global.skill_info_text, 25);
+ds_list_add(attribute, ds_map_find_value(global.attribute, "STR"), ds_map_find_value(global.attribute, "Weapon_Damage"));
+click_snd = 1879;
+scr_skill_atr("Phoenix_tail_takedown");

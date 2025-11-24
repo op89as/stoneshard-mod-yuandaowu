@@ -1,0 +1,13 @@
+event_inherited();
+scr_damage_init();
+scr_light_off();
+scr_set_lt();
+is_execute = false;
+cast_frame = 1.5;
+speed = 10;
+image_speed = 0.5;
+image_xscale = 0;
+destroy_on_cast_frame = false;
+alarm[1] = 1;
+scr_audio_play_at(choose(1565, 1566, 1568));
+type = "noWeapon";
