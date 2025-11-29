@@ -11,7 +11,7 @@ namespace FristMod
     {
         public void AddSmashFist()
         {
-            GameTools.AdjustSkillIcon("s_skills_aard_sign");
+            GameTools.AdjustSkillIcon("s_skills_smash_fist");
             Msl.InjectTableSkillsLocalization(new LocalizationSkill[]
             {
                 new("Smash_Fist", new Dictionary<ModLanguage, string>
@@ -68,8 +68,8 @@ namespace FristMod
                 true, false, false, false, false
             );
             UndertaleGameObject oSmashFist = Msl.AddObject("o_smash_fist", "s_powerkick_hit", "o_target_spell", true, false, true, CollisionShapeFlags.Circle);
-            UndertaleGameObject oSkillSmashFist = Msl.AddObject("o_skill_smash_fist", "s_skills_aard_sign", "o_skill", true, false, true, CollisionShapeFlags.Circle);
-            UndertaleGameObject oSkillSmashFistIco = Msl.AddObject("o_skill_smash_fist_ico", "s_skills_aard_sign", "o_skill_ico", true, false, true, CollisionShapeFlags.Circle);
+            UndertaleGameObject oSkillSmashFist = Msl.AddObject("o_skill_smash_fist", "s_skills_smash_fist", "o_skill", true, false, true, CollisionShapeFlags.Circle);
+            UndertaleGameObject oSkillSmashFistIco = Msl.AddObject("o_skill_smash_fist_ico", "s_skills_smash_fist", "o_skill_ico", true, false, true, CollisionShapeFlags.Circle);
 
             GameObjectUtils.ApplyEvent(oSmashFist, new MslEvent[5]
             {

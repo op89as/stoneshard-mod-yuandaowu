@@ -22,7 +22,7 @@ namespace FristMod
                 {
                     { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
                     { 
-                        ModLanguage.Chinese, string.Join("##", "向目标冲刺，根据冲刺的距离释放阳突还是阴突，如果突袭距离大于~w~二~/~则为阴，如果小于等于~w~二~/~则为阳。##阴造成~w~/*Damage*/点钝击伤害~/~，并且有~w~/*Stagger_Chance*/%~/~概率令目标获得失衡。##阳造成~w~/*More_Damage*/点钝击伤害~/~。##不论阴阳都会获得~w~2~/~层内劲，与~w~/*CRT*/暴击率~/~") 
+                        ModLanguage.Chinese, string.Join("##", "向目标冲刺，根据冲刺的距离释放阳突还是阴突，如果突袭距离大于~w~二~/~则为阴，如果小于等于~w~二~/~则为阳。##阴造成~w~/*Damage*/点钝击伤害~/~，并且有~w~/*Stagger_Chance*/%~/~概率令目标获得失衡。##阳造成~w~/*More_Damage*/点钝击伤害~/~。##不论阴阳都会获得~w~2~/~层内劲。") 
                     }
                 })
             });

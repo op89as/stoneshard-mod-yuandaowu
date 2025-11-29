@@ -4,3 +4,7 @@ info = ds_list_find_value(global.skill_info_text, 25);
 ds_list_add(attribute, ds_map_find_value(global.attribute, "STR"));
 click_snd = 1879;
 scr_skill_atr("Wuji_stance");
+attributes_names_to_open = ["STR", "AGL"];
+attributes_value_to_open = 9;
+level_to_open = 11;
+tier_to_open = global.yuandaowu_tier1;

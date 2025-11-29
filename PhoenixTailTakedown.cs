@@ -22,7 +22,7 @@ namespace FristMod
                     },
                     description: new Dictionary<ModLanguage, string>{
                         {ModLanguage.English, @"Using skills from this same ability tree will cause this effect to stack or be reduced (up to a maximum of ~sy~ twenty ~/~ layers)"},
-                        {ModLanguage.Chinese, @"触发~lg~“揽凤尾”~/~，效果在下一回合开始时结束：##每有~w~一~/~层~w~内劲~/~，格挡力量上限便~lg~+/*Block_Power*/。~/~#格挡几率~lg~+/*PRR*/%~/~#立刻~lg~完全~/~恢复格挡力量##~lg~“揽凤尾”~/~生效期间，每挡住一次击打或完全闪避一次，便获得~w~一~/~层~w~内劲~/~。"}
+                        {ModLanguage.Chinese, @"触发~lg~“揽凤尾”~/~，效果在下一回合开始时结束：##格挡力量上限~lg~+/*Block_Power*/。~/~#格挡几率~lg~+/*PRR*/%~/~#立刻~lg~完全~/~恢复格挡力量。 ##每有~w~一~/~层~w~内劲~/~，格挡力量上限~lg~+/*Block_Power*/。~/~#格挡几率~lg~+/*PRR*/%~/~。"}
                  })
             });
             Msl.InjectTableSpeechesLocalization(new[]

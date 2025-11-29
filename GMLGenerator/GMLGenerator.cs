@@ -29,7 +29,7 @@ namespace FristMod.GMLGenerator
         public int Y { get; set; }
         public string SpriteName { get; set; } = string.Empty;
         public string VariableName { get; set; } = string.Empty;
-
+        public bool DrawKnot { get; set; } = false;
         public LineData() { }
 
         public LineData(int x, int y, string spriteName, string variableName)
@@ -38,6 +38,14 @@ namespace FristMod.GMLGenerator
             Y = y;
             SpriteName = spriteName;
             VariableName = variableName;
+        }
+        public LineData(int x, int y, string spriteName, string variableName, bool drawKnot)
+        {
+            X = x;
+            Y = y;
+            SpriteName = spriteName;
+            VariableName = variableName;
+            DrawKnot = drawKnot;
         }
     }
     public class ConnectionConfig
@@ -57,17 +65,6 @@ namespace FristMod.GMLGenerator
     }
     public class GMLSkillCodeGenerator
     {
-        // 预定义的技能对象常量
-        public static class SkillObjects
-        {
-            public const string ALCHEMY = "o_skill_witcher_alchemy_ico";
-            public const string QUEN = "o_skill_quen_sign_ico";
-            public const string AXII = "o_skill_axii_sign_ico";
-            public const string YRDEN = "o_skill_yrden_sign_ico";
-            public const string GRASSES = "o_skill_trial_of_grasses";
-            public const string AARD = "o_skill_aard_sign_ico";
-            public const string IGNI = "o_skill_igni_sign_ico";
-        }
 
         // 基础函数（内部使用）
         private static string AddSkill(int x, int y, string skillObject, string variableName)
@@ -103,39 +100,32 @@ pop.v.v local.{variableName}";
 
             return string.Join("\n", codeLines);
         }
-
-        // 便捷方法 - 使用预定义技能类型
-        public static string AddSkillsByType(List<(int x, int y, string type, string varName)> skillDefinitions)
-        {
-            var skills = new List<SkillData>();
-
-            foreach (var def in skillDefinitions)
-            {
-                string objectName = def.type switch
-                {
-                    "alchemy" => SkillObjects.ALCHEMY,
-                    "quen" => SkillObjects.QUEN,
-                    "axii" => SkillObjects.AXII,
-                    "yrden" => SkillObjects.YRDEN,
-                    "grasses" => SkillObjects.GRASSES,
-                    "aard" => SkillObjects.AARD,
-                    "igni" => SkillObjects.IGNI,
-                    _ => throw new ArgumentException($"未知的技能类型: {def.type}")
-                };
-
-                skills.Add(new SkillData(def.x, def.y, objectName, def.varName));
-            }
-
-            return AddSkills(skills.ToArray());
-        }
     }
     public class GMLLineCodeGenerator
     {
 
         // 创建连线对象的基础函数
-        public static string CreateLine(int x, int y, string lineSprite, string variableName)
+        public static string CreateLine(int x, int y, string lineSprite, string variableName, bool drawKnot = false)
         {
-            return $@"pushi.e {y}
+            if (drawKnot)
+            {
+                return $@"pushi.e 1
+conv.b.v
+pushi.e {y}
+conv.i.v
+pushi.e {x}
+conv.i.v
+pushi.e {lineSprite}
+conv.i.v
+push.v self.connectionsRender
+push.i gml_Script_ctr_SkillLine
+conv.i.v
+call.i @@NewGMLObject@@(argc=6)
+pop.v.v local.{variableName}";
+            }
+            else
+            {
+                return $@"pushi.e {y}
 conv.i.v
 pushi.e {x}
 conv.i.v
@@ -146,6 +136,7 @@ push.i gml_Script_ctr_SkillLine
 conv.i.v
 call.i @@NewGMLObject@@(argc=5)
 pop.v.v local.{variableName}";
+            }
         }
 
         // 批量创建连线对象
@@ -160,7 +151,7 @@ pop.v.v local.{variableName}";
             {
                 if (line == null) continue;
 
-                string lineCode = CreateLine(line.X, line.Y, line.SpriteName, line.VariableName);
+                string lineCode = CreateLine(line.X, line.Y, line.SpriteName, line.VariableName, line.DrawKnot);
                 codeLines.Add(lineCode);
             }
 
@@ -170,19 +161,29 @@ pop.v.v local.{variableName}";
         // 单点连接（技能点连接到技能点）
         public static string ConnectPoints(string sourceVar, params string[] targetVars)
         {
+            if (targetVars == null || targetVars.Length == 0)
+                return string.Empty;
+
             var codeLines = new List<string>();
 
+            // 1. 压入源对象（发起连接的点）
+            codeLines.Add($@"pushloc.v local.{sourceVar}");
+
+            // 2. 压入所有目标对象
             foreach (var targetVar in targetVars)
             {
-                codeLines.Add($@"pushloc.v local.{sourceVar}
-pushloc.v local.{targetVar}
-call.i @@NewGMLArray@@(argc=1)
-dup.v 1 8
-dup.v 0
-push.v stacktop.addConnectedPoints
-callv.v 1
-popz.v");
+                codeLines.Add($@"pushloc.v local.{targetVar}");
             }
+
+            // 3. 创建包含所有目标的数组 (参数数量等于目标数量)
+            codeLines.Add($@"call.i @@NewGMLArray@@(argc={targetVars.Length})");
+
+            // 4. 标准调用结构 (数组作为一个整体参数传递，所以是 dup.v 1 8 和 callv.v 1)
+            codeLines.Add($@"dup.v 1 8");
+            codeLines.Add($@"dup.v 0");
+            codeLines.Add($@"push.v stacktop.addConnectedPoints");
+            codeLines.Add($@"callv.v 1");
+            codeLines.Add($@"popz.v");
 
             return string.Join("\n", codeLines);
         }
@@ -224,10 +225,10 @@ popz.v");
             }
 
             codeLines.Add($@"call.i @@NewGMLArray@@(argc={lineVars.Length})");
-            codeLines.Add($@"dup.v {lineVars.Length} 8");
+            codeLines.Add($@"dup.v 1 8");
             codeLines.Add($@"dup.v 0");
             codeLines.Add($@"push.v stacktop.addConnectedLines");
-            codeLines.Add($@"callv.v {lineVars.Length}");
+            codeLines.Add($@"callv.v 1");
             codeLines.Add($@"popz.v");
 
             return string.Join("\n", codeLines);

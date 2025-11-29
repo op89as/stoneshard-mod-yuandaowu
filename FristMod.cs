@@ -12,7 +12,7 @@ namespace FristMod
         public override string Name => "MyFirstMod";
         public override string Author => "小花菊茶";
         public override string Description => "元道·武";
-        public override string Version => "0.2.3";
+        public override string Version => "0.3.2";
         public override void PatchMod()
         {
             BaseGmlFuncManagement();
@@ -45,8 +45,15 @@ namespace FristMod
             AddPhoenixTailTakedown();
             AddCloudDispellingPalm();
             AddWujiStance();
-            Msl.Save(Msl.ReplaceBy(Msl.MatchFrom(Msl.LoadGML("gml_Object_o_dataLoader_Other_10"), "global.combat_tier1, global.geomancy_tier1"), "scr_classCreate(o_agemon, s_Leosthenes, \"Leosthenes\", \"Male\", \"Human\", \"Nistra\", \"Agemon\", 11, 10, 10, 11, 11, [global.maces_tier1, global.greatmaces_tier1, global.shields_tier1, global.armor_tier1, global.combat_tier1, global.geomancy_tier1, [\"yuandaowu\", o_skill_smash_fist_ico, o_skill_yinyang_strike_ico, o_skill_phoenix_tail_takedown_ico, o_skill_cloud_dispelling_palm_ico, o_skill_wuji_stance_ico,o_pass_skill_inner_balance, o_pass_skill_inner_energy_surges, o_pass_skill_microcosmic_orbit ]], [o_perk_might_and_magic], (1 << 0), false)"));
-
+            Msl.LoadGML("gml_GlobalScript_scr_skill_tier_init")
+                .MatchFrom("global.armor_tier3 = [\"Armor\", 926, 5126]")
+                .InsertBelow(@"
+                global.yuandaowu_tier1 = [""yuandaowu"", o_skill_smash_fist_ico, o_skill_yinyang_strike_ico, o_pass_skill_inner_balance];
+                global.yuandaowu_tier2 = [""yuandaowu"", o_pass_skill_microcosmic_orbit, o_skill_wuji_stance_ico, o_skill_phoenix_tail_takedown_ico];
+                global.yuandaowu_tier3 = [""yuandaowu"", o_skill_cloud_dispelling_palm_ico, o_pass_skill_inner_energy_surges];
+                ").Save();
+            Msl.Save(Msl.ReplaceBy(Msl.MatchFrom(Msl.LoadGML("gml_Object_o_dataLoader_Other_10"), "global.combat_tier1, global.geomancy_tier1"), "scr_classCreate(o_agemon, s_Leosthenes, \"Leosthenes\", \"Male\", \"Human\", \"Nistra\", \"Agemon\", 11, 10, 10, 11, 11, [global.maces_tier1, global.greatmaces_tier1, global.shields_tier1, global.armor_tier1, global.combat_tier1, global.geomancy_tier1, global.yuandaowu_tier1], [o_perk_might_and_magic], (1 << 0), false)"));
+            
         }
         //调整空手获得格挡力量的逻辑
         private static void SetNewBlockPowerLogic() 
@@ -92,7 +99,7 @@ namespace FristMod
         {
             Msl.GetSprite("s_base_skill_page").OriginX = 0;
             Msl.GetSprite("s_base_skill_page").OriginY = 0;
-            UndertaleGameObject val = Msl.AddObject("o_skill_category_yuandaowu", "", "o_skill_category_utility", true, false, true, (CollisionShapeFlags)0);
+            UndertaleGameObject val = Msl.AddObject("o_skill_category_yuandaowu", "", "o_skill_category_utility", true, false, true, CollisionShapeFlags.Box);
             Msl.InjectTableTextTreesLocalization((LocalizationTextTree[])(object)new LocalizationTextTree[1]
             {
                 new("yuandaowu", new Dictionary<ModLanguage, string>
@@ -129,23 +136,48 @@ namespace FristMod
             });
             var skills = new GMLGenerator.SkillData[]
             {
-                new(55, 24, "o_skill_smash_fist_ico", "_smash_fist"),
-                new(55, 62, "o_skill_yinyang_strike_ico", "_yinyang_strike"),
-                new(55, 100, "o_skill_phoenix_tail_takedown_ico", "_phoenix_tail_takedown"),
-                new(55, 138, "o_skill_cloud_dispelling_palm_ico", "_cloud_dispelling_palm"),
-                new(111, 24, "o_skill_wuji_stance_ico", "_wuji_stance"),
-                new(111, 62, "o_pass_skill_inner_balance", "_inner_balance"),
-                new(111, 100, "o_pass_skill_inner_energy_surges", "_inner_energy_surges"),
-                new(111, 138, "o_pass_skill_microcosmic_orbit", "_microcosmic_orbit"),
+                new(55, 31, "o_skill_smash_fist_ico", "_smash_fist"),
+                new(55, 81, "o_skill_yinyang_strike_ico", "_yinyang_strike"),
+                new(55, 131, "o_pass_skill_inner_balance", "_inner_balance"),
+                new(128, 31, "o_pass_skill_microcosmic_orbit", "_microcosmic_orbit"),
+                new(128, 81, "o_skill_wuji_stance_ico", "_wuji_stance"),
+                new(128, 131, "o_skill_phoenix_tail_takedown_ico", "_phoenix_tail_takedown"),
+                new(201, 56, "o_skill_cloud_dispelling_palm_ico", "_cloud_dispelling_palm"),
+                new(201, 107, "o_pass_skill_inner_energy_surges", "_inner_energy_surges"),
             };
             var lines = new GMLGenerator.LineData[]
             {
-                new(62, 70, "s_skill_line_26", "_line1")
+                new(31, 70, "s_skill_line_1", "_line1"),
+                new(81, 70, "s_skill_line_1", "_line2"),
+                new(131, 70, "s_skill_line_1", "_line3"),
+                new(31, 143, "s_skill_line_2", "_line4"),
+                new(81, 143, "s_skill_line_4", "_line5"),
+                new(131, 143, "s_skill_line_3", "_line6"),
+                new(56, 166, "s_skill_line_5", "_line7", true),
+                new(106, 166, "s_skill_line_5", "_line8", true),
             };
             var connections = new GMLGenerator.ConnectionConfig[]
             {
-                new("_yinyang_strike", new[] { "_inner_balance" }, "points"),
-                new("_yinyang_strike", new[] { "_line1" }, "lines"),
+                new("_microcosmic_orbit", new[] { "_smash_fist" }, "points"),
+                new("_microcosmic_orbit", new[] { "_line1" }, "lines"),
+                new("_wuji_stance", new[] { "_yinyang_strike" }, "points"),
+                new("_wuji_stance", new[] { "_line2" }, "lines"),
+                new("_phoenix_tail_takedown", new[] { "_inner_balance" }, "points"),
+                new("_phoenix_tail_takedown", new[] { "_line3" }, "lines"),
+                new("_cloud_dispelling_palm", new[] { "_inner_energy_surges", "_wuji_stance" }, "points"),
+                new("_cloud_dispelling_palm", new[] { "_line7" }, "lines"),
+                new("_inner_energy_surges", new[] { "_wuji_stance", "_phoenix_tail_takedown" }, "points"),
+                new("_inner_energy_surges", new[] { "_line8" }, "lines"),
+                new("_line1", new[] { "_smash_fist" }, "points"),
+                new("_line2", new[] { "_yinyang_strike" }, "points"),
+                new("_line3", new[] { "_inner_balance" }, "points"),
+                new("_line4", new[] { "_microcosmic_orbit" }, "points"),
+                new("_line5", new[] { "_wuji_stance" }, "points"),
+                new("_line6", new[] { "_phoenix_tail_takedown" }, "points"),
+                new("_line7", new[] { "_microcosmic_orbit", "_wuji_stance" }, "points"),
+                new("_line7", new[] { "_line4", "_line5" }, "lines"),
+                new("_line8", new[] { "_wuji_stance", "_phoenix_tail_takedown" }, "points"),
+                new("_line8", new[] { "_line5", "_line6" }, "lines"),
             };
             string skillPageAsm = GMLGenerator.GMLCodeCombiner.GenerateCompleteSkillTree(skills, lines, connections);
             Msl.AddNewEvent(val, skillPageAsm, EventType.Other, 24, true);

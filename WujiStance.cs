@@ -22,7 +22,7 @@ namespace FristMod
                     },
                     description: new Dictionary<ModLanguage, string>{
                         {ModLanguage.English, @"Using skills from this same ability tree will cause this effect to stack or be reduced (up to a maximum of ~sy~ twenty ~/~ layers)"},
-                        {ModLanguage.Chinese, @"触发~w~10~/~个回合的~lg~“无极式”~/~：##护甲穿透~lg~+5%~/~#肢体伤害~lg~+10%~/~#疼痛抗性~lg~+5%~/~#暴击几率~lg~+3%~/~##运用同一能力树的攻击技能会令这个效果叠加1层（最多叠到~w~四~/~层）##最多持续~w~10~/~个回合。##~lg~站姿~/~效果无法多个同时生效。"}
+                        {ModLanguage.Chinese, @"触发~w~10~/~个回合的~lg~“无极式”~/~：##护甲穿透~lg~+5%~/~#肢体伤害~lg~+10%~/~#疼痛抗性~lg~+5%~/~#暴击几率~lg~+3%~/~。##~lg~站姿~/~效果无法多个同时生效。"}
                  })
             });
             Msl.InjectTableSpeechesLocalization(new[]
