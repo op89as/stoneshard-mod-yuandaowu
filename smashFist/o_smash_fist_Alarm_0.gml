@@ -11,7 +11,7 @@
         {
             _inner_force_level = scr_get_inner_force_level();
         }
-        var _stagger_chance = _inner_force_level * 15 + (1.2 * owner.AGL);
+        var _stagger_chance = _inner_force_level * 15;
         with (target)
         {
             if (scr_chance_value(_stagger_chance - Knockback_Resistance))

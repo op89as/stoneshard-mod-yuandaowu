@@ -21,7 +21,7 @@ namespace FristMod
                 }, new Dictionary<ModLanguage, string>
                 {
                     { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
-                    { ModLanguage.Chinese, string.Join("##", "对目标造成~w~/*Damage*/点钝击伤害~/~，本次伤害失衡几率~w~/*Stagger_Chance*/%~/~。并获得~w~4~/~层~r~内劲~/~。##每有5层内劲就会提升~w~15~/~%的失衡概率。##超过5层之后每有5层内劲会增加~w~15~/~%的护甲破坏") }
+                    { ModLanguage.Chinese, string.Join("##", "对目标造成~w~/*Damage*/点钝击伤害~/~。并获得~w~4~/~层~r~内劲~/~。##每有5层内劲就会提升~w~15~/~%的失衡概率。##超过5层之后每有5层内劲会增加~w~15~/~%的护甲破坏") }
                 })
             });
             Msl.InjectTableSpeechesLocalization(new[]
@@ -80,9 +80,10 @@ namespace FristMod
                 new(ModFiles.GetCode("o_smash_fist_Other_25.gml"), EventType.Other, 25),
             });
             //Msl.Save(Msl.Peek(Msl.LoadGML("gml_Object_o_smash_fist_Alarm_0")));
-            GameObjectUtils.ApplyEvent(oSkillSmashFist, new MslEvent[2]
+            GameObjectUtils.ApplyEvent(oSkillSmashFist, new MslEvent[3]
             {
                 new(ModFiles.GetCode("o_skill_smash_fist_Create_0.gml"), EventType.Create, 0),
+                new(ModFiles.GetCode("o_skill_smash_fist_Other_14.gml"), EventType.Other, 14),
                 new(ModFiles.GetCode("o_skill_smash_fist_Other_17.gml"), EventType.Other, 17),
             });
             GameObjectUtils.ApplyEvent(oSkillSmashFistIco, new MslEvent[2]

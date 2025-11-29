@@ -1,5 +1,5 @@
 ﻿var _dmg = (10 + (1.5 * owner.STR * owner.Weapon_Damage / 100)) * scr_inner_energy_surges();
-var _hit_chance = 100 + (2 * owner.PRC);
+var _hit_chance = 50 + (2 * owner.PRC);
 var _crt = 0.2 * owner.PRR * scr_inner_energy_surges();
 with (owner)
 {
