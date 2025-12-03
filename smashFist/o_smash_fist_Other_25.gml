@@ -17,14 +17,14 @@ with (owner)
             scr_effect_create(_obj_id, 10, id, id);
             with (_obj_id)
             {
-                stage = 4;
+                stage = 3;
             }
         }
         else
         {
             with (_inner_force)
             {
-                stage += 4;
+                stage += 3;
                 duration = 10;
             }
         }
