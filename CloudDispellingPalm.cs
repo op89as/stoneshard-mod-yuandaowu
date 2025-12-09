@@ -20,9 +20,9 @@ namespace FristMod
                     { ModLanguage.Chinese, "排云掌" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
+                    { ModLanguage.English, string.Join("##", "Deals ~w~/*Bodypart_Damage*/ damage to all targets within range. ##Damage increases by 15% for every ~w~1~/~ stack of ~w~Inner Force~/~. Removes all ~w~Inner Force~/~ upon cast.")  },
                     {
-                        ModLanguage.Chinese, string.Join("##", "对范围内的所有目标的身体造成~w~/*Bodypart_Damage*/点伤害~/~。##每有~w~1~/~层~w~内劲~/~伤害提升15%，释放后会移除全部~w~内劲~/~。")
+                        ModLanguage.Chinese, string.Join("##", "对范围内的所有目标造成~w~/*Bodypart_Damage*/点伤害~/~。##每有~w~1~/~层~w~内劲~/~伤害提升15%，释放后会移除全部~w~内劲~/~。")
                     }
                 })
             });

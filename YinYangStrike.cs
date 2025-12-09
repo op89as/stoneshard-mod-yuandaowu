@@ -20,7 +20,7 @@ namespace FristMod
                     { ModLanguage.Chinese, "阴阳突" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
+                    { ModLanguage.English, string.Join("##", "Charges toward the target. Releases either a yin strike or a yang strike based on the charge distance: releases yin if the charge distance is greater than ~w~two~/~, releases yang if the charge distance is less than or equal to ~w~two~/~. ##Yin deals ~w~/*Damage*/ points of Blunt damage~/~ and has a ~w~/*Stagger_Chance*/%~/~ chance to inflict Stagger on the target. ##Yang deals ~w~/*More_Damage*/ points of Blunt damage~/~. ##Regardless of yin or yang, gains ~w~2~/~ stacks of Inner Force.")  },
                     { 
                         ModLanguage.Chinese, string.Join("##", "向目标冲刺，根据冲刺的距离释放阳突还是阴突，如果突袭距离大于~w~二~/~则为阴，如果小于等于~w~二~/~则为阳。##阴造成~w~/*Damage*/点钝击伤害~/~，并且有~w~/*Stagger_Chance*/%~/~概率令目标获得失衡。##阳造成~w~/*More_Damage*/点钝击伤害~/~。##不论阴阳都会获得~w~2~/~层内劲。") 
                     }

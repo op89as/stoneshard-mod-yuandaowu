@@ -20,8 +20,8 @@ namespace FristMod
                     { ModLanguage.Chinese, "崩拳" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
-                    { ModLanguage.Chinese, string.Join("##", "对目标造成~w~/*Damage*/点钝击伤害~/~。并获得~w~4~/~层~r~内劲~/~。##每有5层内劲就会提升~w~15~/~%的失衡概率。##超过5层之后每有5层内劲会增加~w~15~/~%的护甲破坏") }
+                    { ModLanguage.English, string.Join("##", "Deals ~w~/*Damage*/ points of Blunt damage~/~ to the target and grants ~w~3~/~ stacks of ~r~Inner Force~/~. ##For every 5 stacks of Inner Force, increases the Stagger probability by ~w~15~/~%. ##After exceeding 5 stacks, for every additional 5 stacks of Inner Force, increases Armor Break by ~w~15~/~%.")  },
+                    { ModLanguage.Chinese, string.Join("##", "对目标造成~w~/*Damage*/点钝击伤害~/~。并获得~w~3~/~层~r~内劲~/~。##每有5层内劲就会提升~w~15~/~%的失衡概率。##超过5层之后每有5层内劲会增加~w~15~/~%的护甲破坏。") }
                 })
             });
             Msl.InjectTableSpeechesLocalization(new[]

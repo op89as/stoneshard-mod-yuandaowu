@@ -20,7 +20,7 @@ namespace FristMod
                     { ModLanguage.Chinese, "内在平衡" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
+                    { ModLanguage.English, string.Join("##", "Adds the effects of \"Pain Change ~lg~-0.01%~/~\" and \"Situational Morale Change ~lg~+0.01%~/~\" to the effectiveness of ~lg~Inner Force~/~. ##Increases Max HP by ~lg~+10~/~.")  },
                     {
                         ModLanguage.Chinese, string.Join("##", "令~lg~内劲~/~的效果增加“疼痛变化~lg~-0.01%~/~”、“情境斗志变化~lg~+0.01%~/~”这两项。##令生命上限~lg~+10~/~。")
                     }

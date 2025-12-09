@@ -20,7 +20,7 @@ namespace FristMod
                     { ModLanguage.Chinese, "气贯周身" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
+                    { ModLanguage.English, string.Join("##", "Grants ~w~“SmashFist”~/~ and ~w~“YinYangStrike”~/~ a ~lg~+50%~/~ damage increase and halves their critical hit chance. ##If a target is killed while ~r~“Empty Handed”~/~, immediately restores ~lg~/*HP*/%~/~ of Max HP.")  },
                     {
                         ModLanguage.Chinese, string.Join("##", "令~w~“崩拳”~/~和~w~“阴阳突”~/~的伤害~lg~+50%~/~、暴击几率提高~lg~一半~/~。##如果~r~“空手”~/~情况下击杀目标，那么立刻恢复生命上限~lg~/*HP*/%~/~的生命")
                     }

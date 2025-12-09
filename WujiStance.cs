@@ -21,7 +21,7 @@ namespace FristMod
                         {ModLanguage.Chinese, "无极式"}
                     },
                     description: new Dictionary<ModLanguage, string>{
-                        {ModLanguage.English, @"Using skills from this same ability tree will cause this effect to stack or be reduced (up to a maximum of ~sy~ twenty ~/~ layers)"},
+                        {ModLanguage.English, @"Triggers ~lg~“Wuji Stance”~/~ for ~w~10~/~ turns: ##Increases Armor Penetration by ~lg~+5%~/~, Limb Damage by ~lg~+10%~/~, Pain Resistance by ~lg~+5%~/~, and Critical Hit Chance by ~lg~+3%~/~.##Effects of the same ~lg~Stance~/~ cannot be active simultaneously."},
                         {ModLanguage.Chinese, @"触发~w~10~/~个回合的~lg~“无极式”~/~：##护甲穿透~lg~+5%~/~#肢体伤害~lg~+10%~/~#疼痛抗性~lg~+5%~/~#暴击几率~lg~+3%~/~。##~lg~站姿~/~效果无法多个同时生效。"}
                  })
             });

@@ -20,7 +20,7 @@ namespace FristMod
                     { ModLanguage.Chinese, "内息周天" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, string.Join("##", "Deals ~w~/Damage/ points of blunt damage~/~, with a ~w~/Stagger_Chance/% chance to stagger~/~.\", \"and gains ~w~4~/~ stacks of ~r~Internal Force~/~.")  },
+                    { ModLanguage.English, string.Join("##", "For each ability learned in ~w~yuandao·wu~/~, increases Weapon Damage by ~lg~+3%~/~, Accuracy by ~lg~+1%~/~, Tenacity by ~lg~+1%~/~, Bleeding Resistance by ~lg~+1%~/~, Control Resistance by ~lg~+1%~/~, and Displacement Resistance by ~lg~+1%~/~.")  },
                     {
                         ModLanguage.Chinese, string.Join("##", "~w~元道·武~/~每习得一项能力，兵器伤害~lg~+3%~/~、准度~lg~+1%~/~、坚忍~lg~+1%~/~、出血抗性~lg~+1%~/~、控制抗性~lg~+1%~/~、位移抗性~lg~+1%~/~。")
                     }

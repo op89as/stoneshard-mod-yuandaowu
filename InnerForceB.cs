@@ -33,7 +33,7 @@ namespace FristMod
                         {ModLanguage.Chinese, "内劲"}
                     },
                     description: new Dictionary<ModLanguage, string>{
-                        {ModLanguage.English, @"Using skills from this same ability tree will cause this effect to stack or be reduced (up to a maximum of ~sy~ twenty ~/~ layers)"},
+                        {ModLanguage.English, @"##Increases Weapon Damage by ~lg~+1%~/~, Block Chance by ~lg~+1%~/~, Block Power Limit by ~lg~+1%~/~, and Block Power Recovery by ~lg~+1.5%~/~. ##Using skills from the same Ability Tree stacks or reduces this effect (up to a maximum of ~sy~twenty~/~ stacks). ##Current stacks: ~lg~/*Stage*/~/~."},
                         {ModLanguage.Chinese, @"##兵器伤害~lg~+1%~/~#格挡几率~lg~+1%~/~#格挡力量上限~lg~+1%~/~#格挡力量恢复~lg~+1.5%~/~。##运用同一能力树的技能会令这个效果叠加或减少层数（最多叠到~sy~二十~/~层）##当前~lg~/*Stage*/~/~层"}
                     }
                 )

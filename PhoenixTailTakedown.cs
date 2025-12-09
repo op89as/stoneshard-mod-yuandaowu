@@ -21,7 +21,7 @@ namespace FristMod
                         {ModLanguage.Chinese, "揽凤尾"}
                     },
                     description: new Dictionary<ModLanguage, string>{
-                        {ModLanguage.English, @"Using skills from this same ability tree will cause this effect to stack or be reduced (up to a maximum of ~sy~ twenty ~/~ layers)"},
+                        {ModLanguage.English, @"Triggers ~lg~“Phoenix Tail Takedown”~/~, effect ends at the start of the next turn: ##Increases Block Power Limit by ~lg~+/*Block_Power*/~/~. ##Increases Block Chance by ~lg~+/*PRR*/%~/~. ##Instantly and ~lg~fully~/~ restores Block Power. ##For each stack of ~w~Inner Force~/~, increases Block Power Limit by an additional ~lg~+/*Block_Power*/~/~ and Block Chance by an additional ~lg~+/*PRR*/%~/~."},
                         {ModLanguage.Chinese, @"触发~lg~“揽凤尾”~/~，效果在下一回合开始时结束：##格挡力量上限~lg~+/*Block_Power*/。~/~#格挡几率~lg~+/*PRR*/%~/~#立刻~lg~完全~/~恢复格挡力量。 ##每有~w~一~/~层~w~内劲~/~，格挡力量上限~lg~+/*Block_Power*/。~/~#格挡几率~lg~+/*PRR*/%~/~。"}
                  })
             });

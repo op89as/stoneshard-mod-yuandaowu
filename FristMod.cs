@@ -9,10 +9,10 @@ namespace FristMod
     [SupportedOSPlatform("windows")]
     public partial class MyFristMod : Mod
     {
-        public override string Name => "MyFirstMod";
+        public override string Name => "yuandao·wu";
         public override string Author => "小花菊茶";
         public override string Description => "元道·武";
-        public override string Version => "0.3.2";
+        public override string Version => "1.0.0";
         public override void PatchMod()
         {
             BaseGmlFuncManagement();
@@ -26,11 +26,11 @@ namespace FristMod
             {
                 new("25", new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, "- xxx" },
+                    { ModLanguage.English, "- Empty Handed" },
                     { ModLanguage.Chinese, "-需要空手" }
                 }, new Dictionary<ModLanguage, string>
                 {
-                    { ModLanguage.English, "- xxx"  },
+                    { ModLanguage.English, "- Empty Handed"  },
                     {
                         ModLanguage.Chinese, "-需要空手"
                     }
@@ -106,7 +106,7 @@ namespace FristMod
                 {
                     {
                         ModLanguage.English,
-                        "yuandaowu"
+                        "yuandao·wu"
                     },
                     {
                         ModLanguage.Chinese,
