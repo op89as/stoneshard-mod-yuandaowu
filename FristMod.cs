@@ -12,7 +12,7 @@ namespace FristMod
         public override string Name => "yuandao·wu";
         public override string Author => "小花菊茶";
         public override string Description => "元道·武";
-        public override string Version => "1.0.0";
+        public override string Version => "1.0.1";
         public override void PatchMod()
         {
             BaseGmlFuncManagement();
@@ -164,7 +164,7 @@ namespace FristMod
                 new("_wuji_stance", new[] { "_line2" }, "lines"),
                 new("_phoenix_tail_takedown", new[] { "_inner_balance" }, "points"),
                 new("_phoenix_tail_takedown", new[] { "_line3" }, "lines"),
-                new("_cloud_dispelling_palm", new[] { "_inner_energy_surges", "_wuji_stance" }, "points"),
+                new("_cloud_dispelling_palm", new[] { "_microcosmic_orbit", "_wuji_stance" }, "points"),
                 new("_cloud_dispelling_palm", new[] { "_line7" }, "lines"),
                 new("_inner_energy_surges", new[] { "_wuji_stance", "_phoenix_tail_takedown" }, "points"),
                 new("_inner_energy_surges", new[] { "_line8" }, "lines"),

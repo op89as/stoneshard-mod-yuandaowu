@@ -11,12 +11,12 @@ if (is_open && !scr_is_weapon_type_any_hand("all") && instance_exists(owner))
                     _count++;
             }
         }
-        ds_map_add(data, "Weapon_Damage", 3 * _count);
-        ds_map_add(data, "Hit_Chance", 1 * _count);
-        ds_map_add(data, "Fortitude", 1 * _count);
-        ds_map_add(data, "Bleeding_Resistance", 1 * _count);
-        ds_map_add(data, "Stun_Resistance", 1 * _count);
-        ds_map_add(data, "Knockback_Resistance", 1 * _count);
+        ds_map_replace(data, "Weapon_Damage", 3 * _count);
+        ds_map_replace(data, "Hit_Chance", 1 * _count);
+        ds_map_replace(data, "Fortitude", 1 * _count);
+        ds_map_replace(data, "Bleeding_Resistance", 1 * _count);
+        ds_map_replace(data, "Stun_Resistance", 1 * _count);
+        ds_map_replace(data, "Knockback_Resistance", 1 * _count);
 }
     
 
