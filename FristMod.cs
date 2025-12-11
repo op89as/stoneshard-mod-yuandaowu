@@ -12,12 +12,13 @@ namespace FristMod
         public override string Name => "yuandao·wu";
         public override string Author => "小花菊茶";
         public override string Description => "元道·武";
-        public override string Version => "1.0.1";
+        public override string Version => "1.0.3";
         public override void PatchMod()
         {
             BaseGmlFuncManagement();
             BuffManagement();
             SkillManagement();
+            AddSkillBook();
             PatchSkills();
         }
         private void SkillManagement()
